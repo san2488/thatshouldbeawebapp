@@ -1,0 +1,32 @@
+[
+    {
+        "domain": "grubhub.com",
+        "responsiveness": "WebApk",
+        "whatworks": "",
+        "whatdoesntwork": ""
+    },
+    {
+        "domain": "twitter.com",
+        "responsiveness": "WebApk",
+        "whatworks": "",
+        "whatdoesntwork": "Spaces"
+    },
+    {
+        "domain": "doordash.com",
+        "responsiveness": "A2HS",
+        "whatworks": "",
+        "whatdoesntwork": ""
+    },
+    {
+        "domain": "facebook.com",
+        "responsiveness": "MobileWebsite",
+        "whatworks": "",
+        "whatdoesntwork": ""
+    },
+    {
+        "domain": "messenger.com",
+        "responsiveness": "NA",
+        "whatworks": "",
+        "whatdoesntwork": ""
+    }
+]
