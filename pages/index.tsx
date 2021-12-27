@@ -1,10 +1,10 @@
+import fs from 'fs'
 import type { InferGetStaticPropsType, NextPage } from 'next'
+import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-import { GetStaticProps } from 'next'
-import fs from 'fs'
 import path from 'path'
+import styles from '../styles/Home.module.css'
 
 enum Responsiveness {
   NA = 0,
@@ -54,7 +54,7 @@ const Home: NextPage = ({ data }: InferGetStaticPropsType<typeof getStaticProps>
 
         <div className="accordion" id="accordionExample">
           {data.map( (app: App, index: number) => (
-            <div className="accordion-item">
+            <div className="accordion-item" key={index}>
               <h2 className="accordion-header" id={"heading" + index}>
                 <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target={"#collapse" + index} aria-expanded="true" aria-controls={"collapse" + index}>
                   {app.domain}
@@ -64,7 +64,7 @@ const Home: NextPage = ({ data }: InferGetStaticPropsType<typeof getStaticProps>
                 <div className="accordion-body">
                   {app.responsiveness}
                   <div className="progress">
-                    <div className={"progress-bar"  + " w-" + (Responsiveness[app.responsiveness] / Responsiveness.__LENGTH * 100)} role="progressbar" aria-valuenow={ Responsiveness[app.responsiveness] } aria-valuemin="0" aria-valuemax={Responsiveness.__LENGTH}></div>
+                    <div className={"progress-bar"  + " w-" + (Number(Responsiveness[app.responsiveness]) / Responsiveness.__LENGTH * 100)} role="progressbar" aria-valuenow={ Number(Responsiveness[app.responsiveness]) } aria-valuemin={0} aria-valuemax={Responsiveness.__LENGTH}></div>
                   </div>
                   { app.whatworks != "" &&
                   <div>
@@ -76,7 +76,7 @@ const Home: NextPage = ({ data }: InferGetStaticPropsType<typeof getStaticProps>
                   }
                   { app.whatdoesntwork != "" &&
                   <div>
-                    <h3>What doesn't work</h3>
+                    <h3>What doesn&apos;t work</h3>
                     <p>
                       {app.whatdoesntwork}
                     </p>
